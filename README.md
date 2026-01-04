@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Attendance Tracker
 
-## Getting Started
+A Next.js 15 application for tracking college attendance.
 
-First, run the development server:
+## Setup Instructions
+
+### 1. Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+Replace `your-supabase-url` and `your-supabase-anon-key` with your actual Supabase project credentials.
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database Schema
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The following tables are already deployed in Supabase:
 
-## Learn More
+1. **profiles** (id, display_name, course, division)
+2. **subjects** (id, user_id, name, type ['LECTURE', 'PRACTICAL'], min_attendance)
+3. **timetable** (id, subject_id, day_of_week [0-6], sessions_count)
+4. **attendance_logs** (id, user_id, subject_id, date, status ['ATTENDED', 'BUNKED', 'CANCELLED'])
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS
+- **Backend/DB**: Supabase (Postgres + Auth)
+- **Icons**: Lucide React
+- **Language**: TypeScript
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+attendance-tracker/
+├── app/                    # Next.js App Router pages
+├── utils/
+│   └── supabase/          # Supabase client utilities
+│       ├── client.ts      # Browser client
+│       └── server.ts      # Server client
+├── middleware.ts          # Auth middleware
+└── .env.local            # Environment variables (create this)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Developer
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by Anurag Yadav, IT Engineering, Division C
