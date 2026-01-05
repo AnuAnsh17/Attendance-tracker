@@ -92,7 +92,7 @@ export default async function SettingsPage() {
                 </div>
 
                 {/* Developer Info */}
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
+                <div id="developer" className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4 scroll-mt-16">
                     <h2 className="font-semibold text-gray-900 mb-3">Developer Info</h2>
                     <div className="text-sm text-gray-700 space-y-4">
                         <p>
@@ -110,7 +110,7 @@ export default async function SettingsPage() {
                 </div>
 
                 {/* FAQ Section */}
-                <details className="group/faq bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                <details id="faq" className="group/faq bg-white border border-gray-200 rounded-lg p-4 mb-4 scroll-mt-16">
                     <summary className="flex justify-between items-center font-semibold text-gray-900 cursor-pointer list-none">
                         <span>Frequently Asked Questions</span>
                         <span className="transition group-open/faq:rotate-180">
